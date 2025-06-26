@@ -45,15 +45,6 @@
         html {
             scroll-behavior: smooth;
         }
-        .hidden-section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
     </style>
 </head>
 <body class="bg-[#F8F6F1] text-gray-800">
@@ -88,7 +79,7 @@
 
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         
-        <section id="intro" class="text-center py-16 md:py-24 hidden-section">
+        <section id="intro" class="text-center py-16 md:py-24">
             <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 mb-4">웹디자인개발기능사,</h1>
             <h2 class="text-2xl md:text-3xl font-semibold text-blue-600 mb-6">디지털 시대의 필수 자격증으로 거듭나다</h2>
             <p class="max-w-3xl mx-auto text-lg text-gray-600">
@@ -96,7 +87,7 @@
             </p>
         </section>
 
-        <section id="changes" class="py-16 md:py-20 bg-white rounded-2xl shadow-lg hidden-section">
+        <section id="changes" class="py-16 md:py-20 bg-white rounded-2xl shadow-lg">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900">핵심은 '개발', 2025년 시험 이렇게 바뀝니다</h2>
                 <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">기존의 이론 중심에서 벗어나, UX/UI 설계부터 실제 구현까지 실무 역량을 통합적으로 평가합니다.</p>
@@ -144,7 +135,7 @@
             </div>
         </section>
 
-        <section id="career" class="py-16 md:py-20 hidden-section">
+        <section id="career" class="py-16 md:py-20">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900">당신의 커리어, 어떻게 바뀔까요?</h2>
                 <p class="mt-4 text-lg text-gray-600">이 자격증은 웹/디지털 분야의 다양한 전문 직무로 향하는 훌륭한 디딤돌입니다.</p>
@@ -173,7 +164,7 @@
             </div>
         </section>
 
-        <section id="quiz" class="py-16 md:py-20 bg-blue-50 rounded-2xl shadow-lg hidden-section">
+        <section id="quiz" class="py-16 md:py-20 bg-blue-50 rounded-2xl shadow-lg">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900">실력 점검: 기출문제 맛보기</h2>
                 <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
@@ -185,7 +176,7 @@
             </div>
         </section>
 
-        <section id="strategy" class="py-16 md:py-20 hidden-section">
+        <section id="strategy" class="py-16 md:py-20">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900">합격을 위한 스마트 학습 전략</h2>
                 <p class="mt-4 text-lg text-gray-600">체계적인 계획과 효율적인 학습 방법으로 합격에 더 가까워지세요.</p>
@@ -378,21 +369,8 @@
 
             renderQuiz();
             
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.remove('hidden-section');
-                        entry.target.classList.add('fade-in');
-                        observer.unobserve(entry.target); // Stop observing once it has faded in
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('section').forEach(section => {
-                // All sections start with hidden-section class for animation
-                // The intro section is usually visible on load, so trigger its animation immediately if needed
-                observer.observe(section);
-            });
+            // Removed IntersectionObserver as per user request to display all sections immediately.
+            // All sections will now be visible on page load without a fade-in animation.
         });
     </script>
 </body>
